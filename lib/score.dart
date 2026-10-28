@@ -39,34 +39,24 @@ class Score {
   }
 }
 
+List<Score> scores = [
+  Score(students[0], 80, 90, 70),
+  Score(students[1], 60, 75, 85),
+  Score(students[2], 75, 80, 90),
+];
+
 void calculateScore() {
-  print('===== Select Student =====');
+  for (var score in scores) {
+    // print("Enter scores for ${student.name}:");
+    // stdout.write("Network Score: ");
+    // double networkScore = double.parse(stdin.readLineSync()!);
+    // stdout.write("Dart Score: ");
+    // double dartScore = double.parse(stdin.readLineSync()!);
+    // stdout.write("Database Score: ");
+    // double databaseScore = double.parse(stdin.readLineSync()!);
 
-  for (int i = 0; i < students.length; i++) {
-    print('${i + 1}. ${students[i].name}');
+    // Score score = Score(student, networkScore, dartScore, databaseScore);
+    score.display();
+    print("-------------------------");
   }
-
-  stdout.write('Choose student number: ');
-  int? choice = int.tryParse(stdin.readLineSync() ?? '');
-
-  if (choice == null || choice < 1 || choice > students.length) {
-    print('Invalid student number!');
-    return;
-  }
-
-  Student student = students[choice - 1];
-
-  stdout.write('Enter Network score: ');
-  double? network = double.tryParse(stdin.readLineSync() ?? '');
-
-  stdout.write('Enter Dart score: ');
-  double? dart = double.tryParse(stdin.readLineSync() ?? '');
-
-  stdout.write('Enter Database score: ');
-  double? database = double.tryParse(stdin.readLineSync() ?? '');
-
-  Score score = Score(student, network!, dart!, database!);
-
-  print('===== Score Result =====');
-  score.display();
 }
